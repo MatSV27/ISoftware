@@ -72,11 +72,29 @@ const obtenerUsuario = async (req, res) => {
     }
 };
 
+const autenticarUsuario = async (req, res) => {
+    try {
+        const { username, contrasena } = req.body;
+        const resultado = await pool.query(
+            "SELECT * FROM USUARIO WHERE USERNAME = $1 AND CONTRASENA = $2",
+            [username, contrasena]
+        );
 
+        if (resultado.rows.length === 0) {
+            return res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
+        }
+
+        return res.json({ message: 'Autenticación exitosa', usuario: resultado.rows[0] });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Error al autenticar el usuario' });
+    }
+};
 
 module.exports = {
     mostrarListaUsuarios,
     eliminarUsuario,
     actualizarUsuario,
-    obtenerUsuario
+    obtenerUsuario,
+    autenticarUsuario
 }
