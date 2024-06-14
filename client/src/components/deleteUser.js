@@ -61,10 +61,10 @@ export default function DeleteUser() {
 
     return (
     <div>
-        <header className="header">
+        <header className="headerDel">
             <img src={sanFelipeLogo} alt="Clínica San Felipe" />
                 <h1>Lista de Usuarios</h1>
-                <button className="return" onClick={() => navigate('..')}>Regresar</button>
+                <button className="returnDel" onClick={() => navigate('..')}>Regresar</button>
             </header>
         <div className="containerDelete">
         <ul className="listDel">

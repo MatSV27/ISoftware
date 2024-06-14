@@ -1,9 +1,25 @@
-const getAllTickets = (req,res) =>{
-    res.send('Retrieving a single task');
+const pool = require('../db')
+
+const getAllTickets = async (req,res) =>{
+    try {
+        const result = await pool.query('SELECT * FROM ticket')
+        res.json(result.rows)
+    } catch (error) {
+        console.log(error.message)
+    }
+    
+
 }
 
-const getSpecificTicket =  (req,res) =>{
-    res.send('Retrieving a single task');
+const getSpecificTicket =  async (req,res) =>{
+    try {
+        const { id } = req.params;
+        const result = await pool.query('SELECT * FROM ticket WHERE idticket = $1', [id]);
+        res.json(result.rows[0]);
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Error del servidor');
+    }
 }
 
 const addTicket = (req,res) =>{
@@ -14,7 +30,20 @@ const deleteTicket = (req,res) =>{
     res.send('Deleting a list of tasks');
 }
 
-const modifyTicket = (req,res) =>{
+const modifyTicket =  async(req,res) =>{
+    const {id} = req.params;
+    const { descripcion, urgencia } = req.body;
+    if (![1, 2, 3, 4, 5].includes(Number(urgencia))) {
+        return res.status(400).send('La prioridad debe estar entre 1 y 5');
+      }
+      
+    console.log(id, descripcion, urgencia)
+
+    const result = await pool.query('UPDATE ticket SET descripcion = $1, urgencia = $2 WHERE idticket = $3',
+        [descripcion, urgencia, id]
+    );
+
+    console.log(result)
     res.send('Updating a list of tasks');
 }
 

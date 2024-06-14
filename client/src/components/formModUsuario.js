@@ -33,15 +33,6 @@ export default function FormModUsuario() {
             });
     }, [id]);
 
-    const getRoleText = (role) => {
-        switch(role) {
-            case 1:
-                return 'Administrador';
-            default:
-                return 'Usuario';
-        }
-    };
-
     const handleInputChange = (e) => {
         setFormData({
             ...formData,
@@ -107,8 +98,8 @@ export default function FormModUsuario() {
                     </select>
 
                     <div className="button-group">
-                        <button type="submit">Guardar</button>
-                        <button type="submit" onClick={() => navigate('/modificarUsuario')}>Volver</button>
+                        <button className="butForm" type="submit">Guardar</button>
+                        <button className="butFormVol" type="submit" onClick={() => navigate('/modificarUsuario')}>Volver</button>
                     </div>
                 </form>
             </div>

@@ -44,7 +44,7 @@ export default function ModificarUsuario() {
                         <div className="user">
                             <h2>Nombre de Usuario: {user.username}</h2>
                             <p>Rol: {getRoleText(user.rol)}</p>
-                            <button onClick={() => navigate(`/modificarUsuario/${user.idusuario}`)}>Modificar</button>
+                            <button className="butMod" onClick={() => navigate(`/modificarUsuario/${user.idusuario}`)}>Modificar</button>
                         </div>
                     </div>
                         ))}
