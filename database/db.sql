@@ -64,3 +64,5 @@ CREATE TABLE ASIGNACION (
     horaFinReal TIME,
     estado INT
 );
+
+ALTER TABLE USUARIO ADD COLUMN username VARCHAR(50);
