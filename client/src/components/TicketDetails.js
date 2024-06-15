@@ -102,7 +102,7 @@ const TicketDetails = () => {
             <button onClick={() => setIsEditing(true)}>Modificar</button>
           </div>
         )}
-        <Link to="/"><button>Regresar</button></Link>
+        <Link to="/ticket"><button>Regresar</button></Link>
       </div>
     </div>
   );

@@ -45,7 +45,6 @@ export default function FormModUsuario() {
     
         const { username, email, password, role } = formData;
     
-        // Realizar la solicitud PUT al backend
         fetch(`http://localhost:4000/actualizar-usuario/${id}`, {
             method: 'PUT',
             headers: {
@@ -54,21 +53,18 @@ export default function FormModUsuario() {
             body: JSON.stringify({
                 username,
                 email,
-                contrasena: password, // Renombrar 'password' a 'contrasena' para que coincida con el backend
-                rol: parseInt(role), // Convertir 'role' de string a entero para que coincida con el backend
+                contrasena: password, 
+                rol: parseInt(role), 
                 idusuario: `${id}`
             }),
         })
         .then(response => response.json())
         .then(data => {
             console.log('Respuesta del servidor:', data);
-            // Aquí podrías manejar la respuesta del servidor según lo necesites
-            // Por ejemplo, mostrar un mensaje de éxito o redirigir a otra página
             navigate('/modificarUsuario');
         })
         .catch(error => {
             console.error('Error al actualizar usuario:', error);
-            // Aquí podrías manejar errores, por ejemplo, mostrar un mensaje de error al usuario
         });
     };
 

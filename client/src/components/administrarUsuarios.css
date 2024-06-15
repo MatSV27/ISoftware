@@ -1,0 +1,87 @@
+.containerAdministrar {
+    display: flex;
+    height: calc(100vh - 60px); 
+    align-items: flex-start; 
+}
+
+
+.leftAdministrar {
+    background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    flex: 1; 
+    margin-top: 200px; 
+}
+
+.rightAdministrar {
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 70%; 
+    margin-top: 100px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.rightAdministrar h2 {
+    margin-bottom: 20px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+td button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: #0056b3; 
+}
+
+
+.buttonAdministrar {
+    padding: 15px 30px;
+    background-color: #007bff; 
+    color: #fff; 
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.buttonAdministrar:hover {
+    background-color: #0056b3; 
+}
+
+.Return{
+    background-color: #6c757d;
+}

@@ -1,22 +1,37 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import DeleteUser from './components/deleteUser';
 import ModificarUsuario from './components/modificarUsuario';
 import FormModUsuario from './components/formModUsuario'
+import LoginSistema from './components/loginSistema';
+import MenuPrincipal from './components/menuPrincipal';
 import TicketList from './components/TicketList';
 import TicketDetails from './components/TicketDetails';
+import AdministrarUsuarios from './components/administrarUsuarios';
 
 
 function App() {
+  const isAuthenticated = !!localStorage.getItem('authToken'); // Simulación de autenticación
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/deleteUsers" element= {<DeleteUser />} />
-        <Route path="/modificarUsuario" element= {<ModificarUsuario />} />
-        <Route path="/modificarUsuario/:id" element= {<FormModUsuario />} />
-
-        <Route path="/" element={<TicketList />} />
-        <Route path="/ticket/:id" element={<TicketDetails />} />
+      <Route path="/login" element={<LoginSistema />} />
+        {isAuthenticated ? (
+          <>
+            <Route path="/" element={<MenuPrincipal />} />
+            <Route path="/deleteUsers" element={<DeleteUser />} />
+            <Route path="/modificarUsuario" element={<ModificarUsuario />} />
+            <Route path="/modificarUsuario/:id" element={<FormModUsuario />} />
+            <Route path="/administrarUsuarios" element={<AdministrarUsuarios />}/>
+            <Route path="/ticket" element={<TicketList />} />
+            <Route path="/ticket/:id" element={<TicketDetails />} />
+          </>
+        ) : (
+          <Route path="*" element={<Navigate to="/login" />} />
+        )}
+        <Route path="/" element={<Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
   );

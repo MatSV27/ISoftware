@@ -6,7 +6,8 @@ const {
     mostrarListaUsuarios,
     eliminarUsuario,
     actualizarUsuario,
-    obtenerUsuario
+    obtenerUsuario,
+    autenticarUsuario
 } = require("../controllers/usuarios.controller");
 
 const router = Router();
@@ -16,5 +17,6 @@ router.get("/mostrar-lista-usuarios", mostrarListaUsuarios);
 router.get("/obtener-usuario/:id", obtenerUsuario);
 router.delete("/eliminar-usuario/:id", eliminarUsuario);
 router.put("/actualizar-usuario/:id", actualizarUsuario);
+router.post("/login",autenticarUsuario);
 
 module.exports = router;

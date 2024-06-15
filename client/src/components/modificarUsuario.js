@@ -33,7 +33,7 @@ export default function ModificarUsuario() {
 
     return (
         <div>
-            <header>
+            <header className="headerMod">
                 <img src={sanFelipeLogo} alt="Clínica San Felipe" />
                 <h1>Modificar Usuarios</h1>
             </header>

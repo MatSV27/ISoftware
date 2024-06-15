@@ -1,17 +1,17 @@
 
-header {
+.headerMod {
     background-color: #4CAF50; 
     padding: 10px;
     display: flex;
     align-items: center;
 }
 
-header img {
+.headerMod img {
     height: 40px;
     margin-right: 10px;
 }
 
-header h1 {
+.headerMod h1 {
     color: white;
     margin: 0;
 }
