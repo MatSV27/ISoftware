@@ -22,9 +22,21 @@ const getSpecificTicket =  async (req,res) =>{
     }
 }
 
-const addTicket = (req,res) =>{
-    res.send('Creating a list of tasks');
-}
+const addTicket = async (req, res) => {
+    const { idCliente, idEquipoTec, descripcion, urgencia } = req.body;
+    const fechaHora = new Date();
+
+    try {
+        const result = await pool.query(
+            'INSERT INTO ticket (idticket, idCliente, idEquipoTec, descripcion, fechaHora, estado, urgencia) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+            [generateId(), idCliente, idEquipoTec, descripcion, fechaHora, 1, urgencia] // Estado inicial 1
+        );
+        res.json(result.rows[0]);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send('Error al crear el ticket');
+    }
+};
 
 const deleteTicket = (req,res) =>{
     res.send('Deleting a list of tasks');
@@ -46,6 +58,10 @@ const modifyTicket =  async(req,res) =>{
     console.log(result)
     res.send('Updating a list of tasks');
 }
+
+const generateId = () => {
+    return 'TICKET_' + Math.random().toString(36).substr(2, 9);
+};
 
 module.exports = {
     getAllTickets,
