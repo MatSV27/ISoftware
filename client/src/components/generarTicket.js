@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './generarTicket.css';
 
 const GenerarTicket = () => {
-    const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        descripcion: 'Se está generando ticket para .....',
-        urgencia: '3',
-        informacion: 'Aparte del ticket, este debe ser .....',
-        especialista: 'Cristian Mejía Uribe',
+        descripcion: '',
+        urgencia: '3', // Valor por defecto, puedes cambiar según prefieras
+        idEquipoTec: '', // Aquí debes establecer el ID del equipo técnico seleccionado
     });
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -26,7 +23,13 @@ const GenerarTicket = () => {
         try {
             const response = await axios.post('http://localhost:4000/tickets', formData);
             console.log('Ticket creado:', response.data);
-            navigate('/tickets');
+            // Aquí podrías redirigir a la página de detalles del ticket creado, por ejemplo:
+            // history.push(`/ticket/${response.data.idTicket}`);
+            setFormData({
+                descripcion: '',
+                urgencia: '3',
+                idEquipoTec: '',
+            });
         } catch (error) {
             console.error('Error al crear el ticket:', error);
             setErrorMessage('Error al crear el ticket. Por favor, inténtelo de nuevo.');
@@ -60,26 +63,21 @@ const GenerarTicket = () => {
                         onChange={handleChange}
                     />
 
-                    <label htmlFor="informacion">Información adicional</label>
-                    <textarea
-                        id="informacion"
-                        name="informacion"
-                        value={formData.informacion}
-                        onChange={handleChange}
-                    ></textarea>
-
-                    <label htmlFor="especialista">Especialista</label>
+                    <label htmlFor="idEquipoTec">Especialista</label>
                     <input
                         type="text"
-                        id="especialista"
-                        name="especialista"
-                        value={formData.especialista}
+                        id="idEquipoTec"
+                        name="idEquipoTec"
+                        value={formData.idEquipoTec}
                         onChange={handleChange}
                     />
 
                     <div className="buttons">
                         <button type="submit">Guardar</button>
-                        <button type="button" onClick={() => navigate('/MenuPrincipal')}>Regresar</button>
+                        {/* Puedes redirigir a cualquier otra página después de crear el ticket */}
+                        <button type="button" onClick={() => window.location.href = '/MenuPrincipal'}>
+                            Regresar
+                        </button>
                     </div>
                 </form>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
