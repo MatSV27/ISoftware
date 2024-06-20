@@ -23,18 +23,19 @@ const getSpecificTicket =  async (req,res) =>{
 }
 
 const addTicket = async (req, res) => {
-    const { idCliente, idEquipoTec, descripcion, urgencia } = req.body;
-    const fechaHora = new Date();
+    const { descripcion, urgencia, idEquipoTec } = req.body;
+    const fechaHora = new Date(); // Fecha y hora actual del servidor
 
     try {
+        // Insertar el nuevo ticket en la base de datos
         const result = await pool.query(
-            'INSERT INTO ticket (idticket, idCliente, idEquipoTec, descripcion, fechaHora, estado, urgencia) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-            [generateId(), idCliente, idEquipoTec, descripcion, fechaHora, 1, urgencia] // Estado inicial 1
+            'INSERT INTO ticket (idTicket, descripcion, urgencia, idEquipoTec, fechaHora, estado) VALUES (DEFAULT, $1, $2, $3, $4, $5) RETURNING *',
+            [descripcion, urgencia, idEquipoTec, fechaHora, 1] // Estado inicial del ticket (ejemplo: 1)
         );
-        res.json(result.rows[0]);
+        res.status(201).json(result.rows[0]); // Devolver el ticket creado como respuesta
     } catch (error) {
-        console.log(error.message);
-        res.status(500).send('Error al crear el ticket');
+        console.error('Error al generar el ticket:', error);
+        res.status(500).send('Error del servidor al generar el ticket');
     }
 };
 
@@ -59,9 +60,6 @@ const modifyTicket =  async(req,res) =>{
     res.send('Updating a list of tasks');
 }
 
-const generateId = () => {
-    return 'TICKET_' + Math.random().toString(36).substr(2, 9);
-};
 
 module.exports = {
     getAllTickets,
