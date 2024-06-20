@@ -8,6 +8,7 @@ import LoginSistema from './components/loginSistema';
 import MenuPrincipal from './components/menuPrincipal';
 import TicketList from './components/TicketList';
 import TicketDetails from './components/TicketDetails';
+import GenerarTicket from './components/generarTicket';
 import AdministrarUsuarios from './components/administrarUsuarios';
 
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/modificarUsuario/:id" element={<FormModUsuario />} />
             <Route path="/administrarUsuarios" element={<AdministrarUsuarios />}/>
             <Route path="/ticket" element={<TicketList />} />
+            <Route path="/generarTicket" element={<GenerarTicket />} />
             <Route path="/ticket/:id" element={<TicketDetails />} />
           </>
         ) : (
