@@ -1,0 +1,122 @@
+.bodyDisc {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.containerDisc {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.headerDisc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.headerDisc img {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+}
+
+.headerDisc h1 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.contentDisc {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-adicional, .mensajes {
+    width: 48%;
+}
+
+.info-adicional h3, .mensajes h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.labelDisc {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+}
+
+.inputDisc, .textareaDisc {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.textareaDisc {
+    resize: vertical;
+}
+
+.mensaje {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.mensaje-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.mensaje-body {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.mensaje:hover {
+    background: #f1f1f1;
+    cursor: pointer;
+}
+
+.nuevo-mensaje {
+    margin-top: 20px;
+}
+
+.nuevo-mensaje textarea {
+    margin-bottom: 10px;
+}
+
+.buttonDisc {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.buttonDisc:disabled {
+    background: #ccc;
+}
+
+.actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.actions button {
+    margin-left: 10px;
+}

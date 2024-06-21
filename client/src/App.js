@@ -9,6 +9,7 @@ import MenuPrincipal from './components/menuPrincipal';
 import TicketList from './components/TicketList';
 import TicketDetails from './components/TicketDetails';
 import AdministrarUsuarios from './components/administrarUsuarios';
+import DiscusionTicket from './components/discusionTicket';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path="/administrarUsuarios" element={<AdministrarUsuarios />}/>
             <Route path="/ticket" element={<TicketList />} />
             <Route path="/ticket/:id" element={<TicketDetails />} />
+            <Route path="/ticketDiscusion/:id" element={<DiscusionTicket />} />
           </>
         ) : (
           <Route path="*" element={<Navigate to="/login" />} />

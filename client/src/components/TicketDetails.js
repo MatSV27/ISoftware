@@ -48,6 +48,11 @@ const TicketDetails = () => {
     }
   };
 
+  const formatDate = (isoString) => {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    return new Date(isoString).toLocaleString(undefined, options).replace(',', '');
+  };
+
   if (!ticket) {
     return <div>Cargando...</div>;
   }
@@ -89,7 +94,7 @@ const TicketDetails = () => {
         </div>
         <div className="details-row">
           <div className="details-label">Fecha de creación</div>
-          <div className="details-value">{ticket.fechahora}</div>
+          <div className="details-value">{formatDate(ticket.fechahora)}</div>
         </div>
         {isEditing ? (
           <div className="details-buttons">
@@ -98,7 +103,7 @@ const TicketDetails = () => {
           </div>
         ) : (
           <div className="details-buttons">
-            <button>Interactuar con Ayudante de Mesa</button>
+            <button onClick={() => navigate(`/ticketDiscusion/${id}`)}>Interactuar con Ayudante de Mesa</button>
             <button onClick={() => setIsEditing(true)}>Modificar</button>
           </div>
         )}

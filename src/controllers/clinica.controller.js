@@ -47,10 +47,41 @@ const modifyTicket =  async(req,res) =>{
     res.send('Updating a list of tasks');
 }
 
+const getMssgTickets = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const query = `
+            SELECT 
+                m.idMensaje, 
+                m.contenidoMensaje, 
+                u.nombre, 
+                u.rol,
+                m.fechaHora
+            FROM 
+                MENSAJE m
+            JOIN 
+                USUARIO u ON m.idUsuario = u.idUsuario
+            JOIN 
+                TICKET t ON m.idTicket = t.idTicket
+            WHERE 
+                t.idTicket = $1
+            ORDER BY 
+                m.fechaHora ASC;
+        `;
+        const result = await pool.query(query, [id]);
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error del servidor');
+    }
+}
+
+
 module.exports = {
     getAllTickets,
     getSpecificTicket,
     addTicket,
     deleteTicket,
-    modifyTicket
+    modifyTicket,
+    getMssgTickets
 }
