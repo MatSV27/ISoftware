@@ -7,13 +7,15 @@ const {
     eliminarUsuario,
     actualizarUsuario,
     obtenerUsuario,
-    autenticarUsuario
+    autenticarUsuario,
+    agregarUsuario
 } = require("../controllers/usuarios.controller");
 
 const router = Router();
 router.use(bodyParser.json());
 
 router.get("/mostrar-lista-usuarios", mostrarListaUsuarios);
+router.post("/crear-usuario", agregarUsuario);
 router.get("/obtener-usuario/:id", obtenerUsuario);
 router.delete("/eliminar-usuario/:id", eliminarUsuario);
 router.put("/actualizar-usuario/:id", actualizarUsuario);

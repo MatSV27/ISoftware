@@ -4,7 +4,9 @@ const {getAllTickets,
     addTicket, 
     deleteTicket, 
     modifyTicket,
-    getMssgTickets} = require('../controllers/clinica.controller')
+    getMssgTickets,
+    getEquiposTecnicos,
+    insertarMensaje } = require('../controllers/clinica.controller')
 const router = Router();
 
 router.get('/ticket', getAllTickets)
@@ -13,7 +15,10 @@ router.get('/ticket/:id', getSpecificTicket)
 
 router.get('/mssg-ticket/:id', getMssgTickets)
 
+router.get('/equiptec', getEquiposTecnicos)
+
 router.post('/add-ticket', addTicket)
+router.post('/mensaje', insertarMensaje)
 
 router.delete('/delete-ticket', deleteTicket)
 

@@ -43,7 +43,7 @@ export default function AdministrarUsuarios(){
             </header>
             <div class="containerAdministrar">
                 <div class="leftAdministrar">
-                    <button className="buttonAdministrar" onClick={() => navigate('..')}>Agregar Usuario</button>
+                    <button className="buttonAdministrar" onClick={() => navigate('/agregarusuarios')}>Agregar Usuario</button>
                     <button className="buttonAdministrar" onClick={() => navigate('/modificarUsuario')}>Modificar Usuario</button>
                     <button className="buttonAdministrar" onClick={() => navigate('/deleteUsers')}>Eliminar Usuario</button>
                     <button className="buttonAdministrar Return" onClick={() => navigate('..')}>Volver</button>

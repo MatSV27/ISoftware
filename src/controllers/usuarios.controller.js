@@ -1,5 +1,22 @@
 const pool  = require("../db");
 
+const agregarUsuario = async (req,res) => {
+    try{
+            const {nombre,username,correo,documentoidentidad,contrasena,rol} = req.body
+            
+            const resultado = await pool.query(
+                `INSERT INTO USUARIO (idusuario,nombre,username,correo,documentoidentidad,contrasena,rol,fechaingreso) VALUES ('7',$1,$2,$3,$4,$5,$6,CURRENT_TIMESTAMP) RETURNING idusuario`,
+                [
+                    nombre,username,correo,documentoidentidad,contrasena,rol
+                ]
+            );
+
+    } catch(error){
+        console.log(error);
+        return res.status(500).json({ error: 'error al crear user' });
+    }
+}
+
 const mostrarListaUsuarios = async (req,res) =>{
     try{
         const listaUsuarios = await pool.query(
@@ -96,5 +113,6 @@ module.exports = {
     eliminarUsuario,
     actualizarUsuario,
     obtenerUsuario,
-    autenticarUsuario
+    autenticarUsuario,
+    agregarUsuario
 }

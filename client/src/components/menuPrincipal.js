@@ -20,7 +20,7 @@ export default function MenuPrincipal(){
                 <div className="leftMenu">
                     <button className="buttonMenu" onClick={() => handleNavigation('/generarTicket')}>Generar Ticket</button>
                     <button className="buttonMenu" onClick={() => handleNavigation('/ticket')}>Visualizar Ticket</button>
-                    <button className="buttonMenu" onClick={() => handleNavigation('/ticketSinAsignar')}>Tickets sin asignar</button>
+                    {/* <button className="buttonMenu" onClick={() => handleNavigation('/ticketSinAsignar')}>Tickets sin asignar</button> */}
                     <button className="buttonMenu" onClick={() => handleNavigation('/administrarUsuarios')}>Administrar Usuarios</button>
                     <button className="buttonMenu" style={{backgroundColor: 'red'}} onClick={() => { localStorage.removeItem('authToken'); navigate('/login'); }}>Salir</button>
                 </div>

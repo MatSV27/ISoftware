@@ -41,13 +41,17 @@
     justify-content: space-between;
 }
 
+.rol{
+    color: gray;
+}
+
 .info-adicional, .mensajes {
     width: 48%;
 }
 
 .info-adicional h3, .mensajes h3 {
     font-size: 1.2em;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     color: #333;
 }
 

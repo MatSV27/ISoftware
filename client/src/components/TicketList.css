@@ -1,32 +1,60 @@
 .ticket-list {
-    padding: 20px;
-  }
+  width: 90%; 
+  margin: 0 auto;
+  padding: 2%;
+}
   
-  .ticket-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
+.ticket-container {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
   
   .ticket {
-    border: 1px solid #ccc;
+    width: 27.333%;
+    margin: 0 3% 2% 3%; 
     padding: 20px;
-    border-radius: 5px;
-    width: 200px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #ebebeb;
+    padding: 2%;
+    border: 5px solid black;
+    border-radius: 10px;
   }
   
   .ticket h2 {
     margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+  }
+  .ticket p{
+    color: rgb(131, 125, 125);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+  }
+  .ticket p strong {
+    color: black;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 22px;
   }
   
   .ticket button {
+    margin: 2% 0;
+    padding: 10px 20px;
     background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    border: 3px solid rgb(0, 5, 157);
+    font-size: 16px;
     cursor: pointer;
+    width: auto;
+    font-weight: bold;
+    font-size: larger;
+    font-family:'Courier New', Courier, monospace;
   }
   
   .ticket button:hover {

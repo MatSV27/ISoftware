@@ -1,0 +1,84 @@
+.bodyGen {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.headerGen {
+    background-color: #4CAF50;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.headerGen img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.headerGen h1 {
+    color: white;
+    margin: 0;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.form-containerGen {
+    margin: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+textarea, input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+}
+
+button[type="button"] {
+    background-color: #007bff;
+}
+
+button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}

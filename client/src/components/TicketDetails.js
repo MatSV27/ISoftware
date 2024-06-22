@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './TicketDetails.css';
+import sanFelipeLogo from './img/SAN FELIPE.png';
 
 const TicketDetails = () => {
   const { id } = useParams();
@@ -58,6 +59,11 @@ const TicketDetails = () => {
   }
 
   return (
+    <div>
+      <header>
+                <img src={sanFelipeLogo} alt="Clínica San Felipe" />
+                <h1>Ticket #{ticket.idticket}</h1>
+      </header>
     <div className="ticket-details">
       <h1>{ticket.idticket}</h1>
       <div className="details-container">
@@ -99,7 +105,7 @@ const TicketDetails = () => {
         {isEditing ? (
           <div className="details-buttons">
             <button onClick={handleSave}>Guardar</button>
-            <button onClick={() => setIsEditing(false)}>Cancelar</button>
+            <button className='cancel-button' onClick={() => setIsEditing(false)}>Cancelar</button>
           </div>
         ) : (
           <div className="details-buttons">
@@ -107,9 +113,9 @@ const TicketDetails = () => {
             <button onClick={() => setIsEditing(true)}>Modificar</button>
           </div>
         )}
-        <Link to="/ticket"><button>Regresar</button></Link>
+        <Link to="/ticket"><button className='link-button' >Regresar</button></Link>
       </div>
-    </div>
+    </div></div>
   );
 };
 

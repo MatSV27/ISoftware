@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './TicketList.css';
+import sanFelipeLogo from './img/SAN FELIPE.png';
 
 const TicketList = () => {
   const [tickets, setTickets] = useState([]);
@@ -20,18 +21,25 @@ const TicketList = () => {
   }, []);
 
   return (
+    <div>
+      <header>
+                <img src={sanFelipeLogo} alt="Clínica San Felipe" />
+                <h1>Lista de Tickets</h1>
+      </header>
     <div className="ticket-list">
-      <h1>Lista de tickets</h1>
       <div className="ticket-container">
         {tickets.map((ticket) => (
           <div key={ticket.idticket} className="ticket">
-            <h2>{ticket.idticket}</h2>
-            <p><strong>Descripción:</strong> {ticket.descripcion}</p>
-            <p><strong>Prioridad:</strong> {ticket.urgencia}</p>
+            <h2>Ticket #{ticket.idticket}</h2>
+            <p><strong>Descripción:</strong></p> 
+            <p> {ticket.descripcion}</p>
+            <p><strong>Prioridad:</strong></p> 
+            <p> {ticket.urgencia}</p>
             <Link to={`/ticket/${ticket.idticket}`}><button>Detalles</button></Link>
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

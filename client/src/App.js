@@ -8,8 +8,11 @@ import LoginSistema from './components/loginSistema';
 import MenuPrincipal from './components/menuPrincipal';
 import TicketList from './components/TicketList';
 import TicketDetails from './components/TicketDetails';
+import GenerarTicket from './components/generarTicket';
 import AdministrarUsuarios from './components/administrarUsuarios';
 import DiscusionTicket from './components/discusionTicket';
+import AgregarUsuario from './components/agregarusuarios/agregarusuarios'
+
 
 
 function App() {
@@ -26,7 +29,9 @@ function App() {
             <Route path="/modificarUsuario" element={<ModificarUsuario />} />
             <Route path="/modificarUsuario/:id" element={<FormModUsuario />} />
             <Route path="/administrarUsuarios" element={<AdministrarUsuarios />}/>
+            <Route path="/agregarusuarios" element={<AgregarUsuario />}/>
             <Route path="/ticket" element={<TicketList />} />
+            <Route path="/generarTicket" element={<GenerarTicket />} />
             <Route path="/ticket/:id" element={<TicketDetails />} />
             <Route path="/ticketDiscusion/:id" element={<DiscusionTicket />} />
           </>
